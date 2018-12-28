@@ -20,3 +20,4 @@ GET           /api/artists              controllers.ArtistController.listArtists
 GET           /api/artists/:name        controllers.ArtistController.fetchArtistByName(name)
 GET           /api/search/artist        controllers.ArtistController.search(name:String, country: Option[String])
 POST          /subscribe                controllers.ArtistController.subscribe
+GET           /todoCheck                controllers.ArtistController.todoCheck

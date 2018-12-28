@@ -59,4 +59,8 @@ object ArtistController extends Controller {
     request =>
       Status(200)("Got: " + request.body)
   }
+
+  def todoCheck =  {
+    TODO
+  }
 }
