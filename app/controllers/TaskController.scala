@@ -11,7 +11,8 @@ class TaskController @Inject()(cc: ControllerComponents) extends AbstractControl
   }
 
   def taskList1 = Action {
-    Ok("This works!")
+    val list = List("wake up", "brush teeth", "have breakfast", "work", "go to bed")
+    Ok(views.html.taskList1(list))
   }
 //
 //  def tasks = Action {
