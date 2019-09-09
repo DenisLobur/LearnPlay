@@ -7,6 +7,8 @@ GET           /                         controllers.TaskController.index
 GET           /taskList1                controllers.TaskController.taskList1
 GET           /productArgs              controllers.TaskController.product(productType: String, productNum: Int)
 GET           /productArgs2/:type/:num  controllers.TaskController.product(type: String, num: Int)
+GET           /login1                   controllers.TaskController.login
+GET           /validate1                controllers.TaskController.validateLoginGet(username, password)
 
 # Map static resources from the /public folder to the /assets URL path
 #GET           /assets/*file             controllers.Assets.versioned(path="/public", file)

@@ -6,6 +6,14 @@ import play.api.mvc._
 @Singleton
 class TaskController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
+  def login = Action{
+    Ok(views.html.login())
+  }
+
+  def validateLoginGet(userName: String, password: String) = Action{
+    Ok(s"User $userName was logged with the password $password")
+  }
+
   def index = Action {
     Ok(views.html.index())
   }
