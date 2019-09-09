@@ -5,19 +5,19 @@
 # Home page
 GET           /                         controllers.TaskController.index
 
-GET           /new                      controllers.TaskController.newPage
+GET           /taskList1                controllers.TaskController.taskList1
 
 # Map static resources from the /public folder to the /assets URL path
-GET           /assets/*file             controllers.Assets.versioned(path="/public", file)
+#GET           /assets/*file             controllers.Assets.versioned(path="/public", file)
 
 # Tasks
-GET           /tasks                    controllers.TaskController.tasks
-POST          /tasks                    controllers.TaskController.newTask
-DELETE        /tasks/:id                controllers.TaskController.deleteTask(id: Int)
+#GET           /tasks                    controllers.TaskController.tasks
+#POST          /tasks                    controllers.TaskController.newTask
+#DELETE        /tasks/:id                controllers.TaskController.deleteTask(id: Int)
 
 # Artists
-GET           /api/artists              controllers.ArtistController.listArtists
-GET           /api/artists/:name        controllers.ArtistController.fetchArtistByName(name)
-GET           /api/search/artist        controllers.ArtistController.search(name:String, country: Option[String])
-POST          /subscribe                controllers.ArtistController.subscribe
-GET           /todoCheck                controllers.ArtistController.todoCheck
+#GET           /api/artists              controllers.ArtistController.listArtists
+#GET           /api/artists/:name        controllers.ArtistController.fetchArtistByName(name)
+#GET           /api/search/artist        controllers.ArtistController.search(name:String, country: Option[String])
+#POST          /subscribe                controllers.ArtistController.subscribe
+#GET           /todoCheck                controllers.ArtistController.todoCheck

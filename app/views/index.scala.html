@@ -1,36 +1,15 @@
-@(tasks: List[Task])
-
-@main("Task Tracker") {
-    <h2>Task Tracker</h2>
-
-    <div>
-        <form action="@routes.TaskController.newTask()"
-        method="post">
-
-            <input type="text" name="taskName" placeholder="Add a new Task" required>
-            <input type="submit" value="Add">
-        </form>
-    </div>
-    <div>
-        <ul>
-        @tasks.map { task =>
-            <li>
-                @task.name <button onclick="deleteTask (@task.id);">Remove</button>
-            </li>
-        }
-        </ul>
-    </div>
-
-    <script>
-        function deleteTask (id){
-            var req = new XMLHttpRequest();
-            req.open("delete", "/tasks/" + id);
-            req.onload = function (e) {
-                if (req.status == 200){
-                    document.location.reload(true)
-                }
-            };
-            req.send();
-        }
-    </script>
+@()
+@main("Play with Scala.js") {
+<h2>Play and Scala.js share a same message</h2>
+<ul>
+    <li>Play shouts out: <em>"message"</em></li>
+    <li>Scala.js shouts out: <em>"message"</em></li>
+</ul>
+<p>I'm just adding stuff into the arg passed to main.</p>
+<table>
+    @for(i <- 1 to 12) {
+    <tr><td>@i</td></tr>
+    }
+</table>
+@(if(true) "a" else "b")
 }
