@@ -14,6 +14,16 @@ class TaskController @Inject()(cc: ControllerComponents) extends AbstractControl
     Ok(s"User $userName was logged with the password $password")
   }
 
+  def validateLoginPost = Action{ request =>
+    val postVals = request.body.asFormUrlEncoded
+    postVals.map{args =>
+      val username = args("username").head
+      val password = args("password").head
+      Ok(s"$username logged in with $password")
+    }.getOrElse(Ok("Oops"))
+
+  }
+
   def index = Action {
     Ok(views.html.index())
   }
