@@ -1,25 +1,30 @@
 package controllers
 
 import javax.inject._
+import models.TaskListInMemoryModel
 import play.api.mvc._
 
 @Singleton
 class TaskController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-  def login = Action{
+  def login = Action {
     Ok(views.html.login())
   }
 
-  def validateLoginGet(userName: String, password: String) = Action{
+  def validateLoginGet(userName: String, password: String) = Action {
     Ok(s"User $userName was logged with the password $password")
   }
 
-  def validateLoginPost = Action{ request =>
+  def validateLoginPost = Action { request =>
     val postVals = request.body.asFormUrlEncoded
-    postVals.map{args =>
+    postVals.map { args =>
       val username = args("username").head
       val password = args("password").head
-      Redirect(routes.TaskController.taskList1())
+      if (TaskListInMemoryModel.validateUser(username, password)) {
+        Redirect(routes.TaskController.taskList1())
+      } else {
+        Redirect(routes.TaskController.login())
+      }
     }.getOrElse(Redirect(routes.TaskController.login()))
 
   }
@@ -36,25 +41,26 @@ class TaskController @Inject()(cc: ControllerComponents) extends AbstractControl
   def product(productType: String, productNum: Int) = Action {
     Ok(s"Product type is: $productType, product number is: $productNum")
   }
-//
-//  def tasks = Action {
-//    Ok(views.html.index(Task.getAllTasks()))
-//  }
-//
-//  def newTask = Action(parse.urlFormEncoded) {
-//    implicit request =>
-//      Task.addTask(request.body("taskName").head)
-//      Redirect(routes.TaskController.index())
-//  }
-//
-//  def deleteTask(id: Int) = Action {
-//    Task.deleteTask(id)
-//    Ok
-//  }
-//
-//  def newPage = Action {
-//    val content = Html("NEW and updated")
-//    Ok(views.html.main("My Home")(content))
-//  }
+
+  //
+  //  def tasks = Action {
+  //    Ok(views.html.index(Task.getAllTasks()))
+  //  }
+  //
+  //  def newTask = Action(parse.urlFormEncoded) {
+  //    implicit request =>
+  //      Task.addTask(request.body("taskName").head)
+  //      Redirect(routes.TaskController.index())
+  //  }
+  //
+  //  def deleteTask(id: Int) = Action {
+  //    Task.deleteTask(id)
+  //    Ok
+  //  }
+  //
+  //  def newPage = Action {
+  //    val content = Html("NEW and updated")
+  //    Ok(views.html.main("My Home")(content))
+  //  }
 
 }
