@@ -15,34 +15,34 @@ class TaskController @Inject()(cc: ControllerComponents) extends AbstractControl
     Ok(s"User $userName was logged with the password $password")
   }
 
-  def validateLoginPost = Action { request =>
-    val postVals = request.body.asFormUrlEncoded
-    postVals.map { args =>
-      val username = args("username").head
-      val password = args("password").head
-      if (TaskListInMemoryModel.validateUser(username, password)) {
-        Redirect(routes.TaskController.taskList1())
-      } else {
-        Redirect(routes.TaskController.login())
-      }
-    }.getOrElse(Redirect(routes.TaskController.login()))
-  }
+//  def validateLoginPost = Action { request =>
+//    val postVals = request.body.asFormUrlEncoded
+//    postVals.map { args =>
+//      val username = args("username").head
+//      val password = args("password").head
+//      if (TaskListInMemoryModel.validateUser(username, password)) {
+//        //Redirect(routes.TaskController.taskList1())
+//      } else {
+//        //Redirect(routes.TaskController.login())
+//      }
+//    }.getOrElse(Redirect(routes.TaskController.login()))
+//  }
 
-  def createUser = Action { request =>
-    val postVals = request.body.asFormUrlEncoded
-    postVals.map { args =>
-      val username = args("username").head
-      val password = args("password").head
-      if (TaskListInMemoryModel.createUser(username, password)) {
-        Redirect(routes.TaskController.taskList1())
-      } else {
-        Redirect(routes.TaskController.login())
-      }
-    }.getOrElse(Redirect(routes.TaskController.login()))
-  }
+//  def createUser = Action { request =>
+//    val postVals = request.body.asFormUrlEncoded
+//    postVals.map { args =>
+//      val username = args("username").head
+//      val password = args("password").head
+//      if (TaskListInMemoryModel.createUser(username, password)) {
+//        Redirect(routes.TaskController.taskList1())
+//      } else {
+//        Redirect(routes.TaskController.login())
+//      }
+//    }.getOrElse(Redirect(routes.TaskController.login()))
+//  }
 
   def index = Action {
-    Ok(views.html.index())
+    Ok(views.html.index("check"))
   }
 
   def taskList1 = Action {
