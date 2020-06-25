@@ -3,9 +3,19 @@
 @main("Login") {
     <h2>Login</h2>
 
-    <form method="get" action="validateLogin1">
+    <form method="get" action="validateLoginGet">
         Username: <input type="text" name="username"/>
+            <br>
         Password: <input type="password" name="password"/>
+            <br>
+        <input type="submit"/>
+    </form>
+
+    <form method="post" action="validateLoginPost">
+        Username: <input type="text" name="username"/>
+        <br>
+        Password: <input type="password" name="password"/>
+        <br>
         <input type="submit"/>
     </form>
 }

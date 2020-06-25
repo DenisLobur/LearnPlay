@@ -11,8 +11,17 @@ class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractControll
     Ok(views.html.login1())
   }
 
-  def validateLogin1(userName: String, password: String) = Action {
+  def validateLoginGet(userName: String, password: String) = Action {
     Ok(s"User $userName was logged with the password $password")
+  }
+
+  def validateLoginPost = Action { request =>
+    val requestVals = request.body.asFormUrlEncoded
+    requestVals.map { args =>
+      val username = args("username").head
+      val password = args("password").head
+      Ok(s"User $username was logged with the password $password")
+    }.getOrElse(Ok("something went wrong"))
   }
 
   def taskListBegin1: Action[AnyContent] = Action {

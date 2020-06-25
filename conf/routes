@@ -8,7 +8,8 @@ GET           /taskListBegin1                           controllers.TaskListBegi
 GET           /getProductArgs                           controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
 GET           /getProduct/:prodName/:prodNumber         controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
 GET           /login1                                   controllers.TaskListBegin.login
-GET           /validateLogin1                           controllers.TaskListBegin.validateLogin1(username, password)
+GET           /validateLoginGet                         controllers.TaskListBegin.validateLoginGet(username, password)
+POST          /validateLoginPost                        controllers.TaskListBegin.validateLoginPost
 
 #GET           /taskList1                controllers.TaskController.taskList1
 #GET           /productArgs              controllers.TaskController.product(productType: String, productNum: Int)
