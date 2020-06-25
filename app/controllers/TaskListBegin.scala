@@ -8,6 +8,10 @@ import play.api.i18n._
 @Singleton
 class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
+  def index = Action {
+    Ok(views.html.index("check"))
+  }
+
   def login = Action {
     Ok(views.html.login1())
   }
@@ -29,9 +33,23 @@ class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractControll
     }.getOrElse(Redirect(routes.TaskListBegin.login()))
   }
 
+  def createUser = Action { request =>
+    val postVals = request.body.asFormUrlEncoded
+    postVals.map { args =>
+      val username = args("username").head
+      val password = args("password").head
+      if (TaskListInMemoryModel.createUser(username, password)) {
+        Redirect(routes.TaskListBegin.taskListBegin1())
+      } else {
+        Redirect(routes.TaskListBegin.login())
+      }
+    }.getOrElse(Redirect(routes.TaskListBegin.login()))
+  }
+
   def taskListBegin1: Action[AnyContent] = Action {
-    val tasks = List("task 1", "task 2", "task 3")
-    Ok(views.html.taskListBegin1(tasks))
+    val username = "denis"
+    val list = TaskListInMemoryModel.getTasks(username)
+    Ok(views.html.taskListBegin1(list))
   }
 
   def getProduct(prodName: String, prodNumber: Int) = Action {

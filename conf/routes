@@ -3,33 +3,11 @@
 # ~~~~
 
 # Home page
-GET           /                                         controllers.TaskController.index
+GET           /                                         controllers.TaskListBegin.index
 GET           /taskListBegin1                           controllers.TaskListBegin.taskListBegin1
 GET           /getProductArgs                           controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
 GET           /getProduct/:prodName/:prodNumber         controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
 GET           /login1                                   controllers.TaskListBegin.login
 GET           /validateLoginGet                         controllers.TaskListBegin.validateLoginGet(username, password)
 POST          /validateLoginPost                        controllers.TaskListBegin.validateLoginPost
-
-#GET           /taskList1                controllers.TaskController.taskList1
-#GET           /productArgs              controllers.TaskController.product(productType: String, productNum: Int)
-#GET           /productArgs2/:type/:num  controllers.TaskController.product(type: String, num: Int)
-#+ nocsrf
-#POST          /validatePost1            controllers.TaskController.validateLoginPost
-#+ nocsrf
-#POST          /createUser1              controllers.TaskController.createUser
-
-# Map static resources from the /public folder to the /assets URL path
-#GET           /assets/*file             controllers.Assets.versioned(path="/public", file)
-
-# Tasks
-#GET           /tasks                    controllers.TaskController.tasks
-#POST          /tasks                    controllers.TaskController.newTask
-#DELETE        /tasks/:id                controllers.TaskController.deleteTask(id: Int)
-
-# Artists
-#GET           /api/artists              controllers.ArtistController.listArtists
-#GET           /api/artists/:name        controllers.ArtistController.fetchArtistByName(name)
-#GET           /api/search/artist        controllers.ArtistController.search(name:String, country: Option[String])
-#POST          /subscribe                controllers.ArtistController.subscribe
-#GET           /todoCheck                controllers.ArtistController.todoCheck
+POST          /createUser                               controllers.TaskListBegin.createUser
