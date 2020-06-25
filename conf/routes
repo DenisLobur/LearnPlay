@@ -3,8 +3,10 @@
 # ~~~~
 
 # Home page
-GET           /                         controllers.TaskController.index
-GET           /taskListBegin1           controllers.TaskListBegin.taskListBegin1
+GET           /                                         controllers.TaskController.index
+GET           /taskListBegin1                           controllers.TaskListBegin.taskListBegin1
+GET           /getProductArgs                           controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
+GET           /getProduct/:prodName/:prodNumber         controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
 #GET           /taskList1                controllers.TaskController.taskList1
 #GET           /productArgs              controllers.TaskController.product(productType: String, productNum: Int)
 #GET           /productArgs2/:type/:num  controllers.TaskController.product(type: String, num: Int)

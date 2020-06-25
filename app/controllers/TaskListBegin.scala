@@ -11,4 +11,8 @@ class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractControll
     val tasks = List("task 1", "task 2", "task 3")
     Ok(views.html.taskListBegin1(tasks))
   }
+
+  def getProduct(prodName: String, prodNumber: Int) = Action {
+    Ok(s"Product name is $prodName, product number is: $prodNumber")
+  }
 }
