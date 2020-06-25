@@ -20,8 +20,8 @@ class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractControll
     requestVals.map { args =>
       val username = args("username").head
       val password = args("password").head
-      Ok(s"User $username was logged with the password $password")
-    }.getOrElse(Ok("something went wrong"))
+      Redirect(routes.TaskListBegin.taskListBegin1())
+    }.getOrElse(Redirect(routes.TaskListBegin.login()))
   }
 
   def taskListBegin1: Action[AnyContent] = Action {
