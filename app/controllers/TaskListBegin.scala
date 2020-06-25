@@ -7,6 +7,14 @@ import play.api.i18n._
 @Singleton
 class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
+  def login = Action {
+    Ok(views.html.login1())
+  }
+
+  def validateLogin1(userName: String, password: String) = Action {
+    Ok(s"User $userName was logged with the password $password")
+  }
+
   def taskListBegin1: Action[AnyContent] = Action {
     val tasks = List("task 1", "task 2", "task 3")
     Ok(views.html.taskListBegin1(tasks))

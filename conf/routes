@@ -7,11 +7,12 @@ GET           /                                         controllers.TaskControll
 GET           /taskListBegin1                           controllers.TaskListBegin.taskListBegin1
 GET           /getProductArgs                           controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
 GET           /getProduct/:prodName/:prodNumber         controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
+GET           /login1                                   controllers.TaskListBegin.login
+GET           /validateLogin1                           controllers.TaskListBegin.validateLogin1(username, password)
+
 #GET           /taskList1                controllers.TaskController.taskList1
 #GET           /productArgs              controllers.TaskController.product(productType: String, productNum: Int)
 #GET           /productArgs2/:type/:num  controllers.TaskController.product(type: String, num: Int)
-#GET           /login1                   controllers.TaskController.login
-#GET           /validateGet1             controllers.TaskController.validateLoginGet(username, password)
 #+ nocsrf
 #POST          /validatePost1            controllers.TaskController.validateLoginPost
 #+ nocsrf
