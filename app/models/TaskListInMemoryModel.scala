@@ -8,7 +8,7 @@ object TaskListInMemoryModel {
   private val tasks = mutable.Map[String, List[String]]("denis" -> List("wake up", "brush teeth", "have breakfast", "work", "go to bed"))
 
   def validateUser(username: String, password: String): Boolean = {
-    users.get(username).map(_ == password).getOrElse(false)
+    users.get(username).contains(password)
   }
 
   def createUser(username: String, password: String): Boolean = {
@@ -19,7 +19,7 @@ object TaskListInMemoryModel {
   }
 
   def getTasks(username: String): Seq[String] = {
-    tasks.get(username).getOrElse(Nil)
+    tasks.getOrElse(username, Nil)
   }
 
   def addTask(username: String, task: String): Unit = ???
