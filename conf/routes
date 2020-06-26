@@ -9,8 +9,6 @@ GET           /getProductArgs                           controllers.TaskListBegi
 GET           /getProduct/:prodName/:prodNumber         controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
 GET           /login1                                   controllers.TaskListBegin.login
 GET           /validateLoginGet                         controllers.TaskListBegin.validateLoginGet(username, password)
-+nocsrf
 POST          /validateLoginPost                        controllers.TaskListBegin.validateLoginPost
-+nocsrf
 POST          /createUser                               controllers.TaskListBegin.createUser
 GET           /logout1                                  controllers.TaskListBegin.logout

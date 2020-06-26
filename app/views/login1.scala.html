@@ -1,4 +1,4 @@
-@()
+@()(implicit header: RequestHeader)
 
 @main("Login") {
     <h2>Login</h2>
@@ -14,6 +14,7 @@
     </form>
 
     <form method="post" action="@routes.TaskListBegin.validateLoginPost()">
+        @helper.CSRF.formField
         <h2>Login with POST</h2>
         <br>
         Username: <input type="text" name="username"/>
@@ -24,6 +25,7 @@
     </form>
 
     <form method="post" action="@routes.TaskListBegin.createUser()">
+        @helper.CSRF.formField
         <h2>Create user</h2>
         <br>
         Username: <input type="text" name="username"/>
