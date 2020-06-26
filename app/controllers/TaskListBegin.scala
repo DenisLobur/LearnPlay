@@ -26,7 +26,7 @@ class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractControll
       val username = args("username").head
       val password = args("password").head
       if (TaskListInMemoryModel.validateUser(username, password)) {
-        Redirect(routes.TaskListBegin.taskListBegin1())
+        Redirect(routes.TaskListBegin.taskListBegin1()).withSession("username" -> username)
       } else {
         Redirect(routes.TaskListBegin.login())
       }
@@ -39,20 +39,26 @@ class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractControll
       val username = args("username").head
       val password = args("password").head
       if (TaskListInMemoryModel.createUser(username, password)) {
-        Redirect(routes.TaskListBegin.taskListBegin1())
+        Redirect(routes.TaskListBegin.taskListBegin1()).withSession("username" -> username)
       } else {
         Redirect(routes.TaskListBegin.login())
       }
     }.getOrElse(Redirect(routes.TaskListBegin.login()))
   }
 
-  def taskListBegin1: Action[AnyContent] = Action {
-    val username = "denis"
-    val list = TaskListInMemoryModel.getTasks(username)
-    Ok(views.html.taskListBegin1(list))
+  def taskListBegin1: Action[AnyContent] = Action { request =>
+    val usernameOption = request.session.get("username")
+    usernameOption.map { username =>
+      val list = TaskListInMemoryModel.getTasks(username)
+      Ok(views.html.taskListBegin1(list))
+    }.getOrElse(Redirect(routes.TaskListBegin.login()))
   }
 
   def getProduct(prodName: String, prodNumber: Int) = Action {
     Ok(s"Product name is $prodName, product number is: $prodNumber")
+  }
+
+  def logout = Action {
+    Redirect(routes.TaskListBegin.login()).withNewSession
   }
 }
