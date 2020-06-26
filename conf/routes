@@ -12,3 +12,4 @@ GET           /validateLoginGet                         controllers.TaskListBegi
 POST          /validateLoginPost                        controllers.TaskListBegin.validateLoginPost
 POST          /createUser                               controllers.TaskListBegin.createUser
 GET           /logout1                                  controllers.TaskListBegin.logout
+POST          /addTask1                                 controllers.TaskListBegin.addTask

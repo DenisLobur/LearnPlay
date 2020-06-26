@@ -58,7 +58,21 @@ class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractControll
     Ok(s"Product name is $prodName, product number is: $prodNumber")
   }
 
+  def addTask = Action { implicit request =>
+    val usernameOption = request.session.get("username")
+    usernameOption.map { username =>
+      val postVals = request.body.asFormUrlEncoded
+      postVals.map { args =>
+        val task = args("newTask").head
+        TaskListInMemoryModel.addTask(username, task)
+        Redirect(routes.TaskListBegin.taskListBegin1())
+      }.getOrElse(Redirect(routes.TaskListBegin.taskListBegin1()))
+    }.getOrElse(Redirect(routes.TaskListBegin.login()))
+  }
+
   def logout = Action {
     Redirect(routes.TaskListBegin.login()).withNewSession
   }
+
+
 }
