@@ -8,7 +8,7 @@ import play.api.i18n._
 @Singleton
 class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-  def index = Action {
+  def index = Action { implicit request =>
     Ok(views.html.index("check"))
   }
 
@@ -28,7 +28,7 @@ class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractControll
       if (TaskListInMemoryModel.validateUser(username, password)) {
         Redirect(routes.TaskListBegin.taskListBegin1()).withSession("username" -> username)
       } else {
-        Redirect(routes.TaskListBegin.login())
+        Redirect(routes.TaskListBegin.login()).flashing("error" -> "invalid username/password combination")
       }
     }.getOrElse(Redirect(routes.TaskListBegin.login()))
   }
@@ -41,7 +41,7 @@ class TaskListBegin @Inject()(cc: ControllerComponents) extends AbstractControll
       if (TaskListInMemoryModel.createUser(username, password)) {
         Redirect(routes.TaskListBegin.taskListBegin1()).withSession("username" -> username)
       } else {
-        Redirect(routes.TaskListBegin.login())
+        Redirect(routes.TaskListBegin.login()).flashing("error" -> "user creation failed")
       }
     }.getOrElse(Redirect(routes.TaskListBegin.login()))
   }

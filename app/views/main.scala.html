@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String)(content: Html)(implicit flash: Flash)
 
 <!DOCTYPE html>
 
@@ -7,6 +7,7 @@
         <title>@title</title>
     </head>
     <body>
+        @flash.get("error")
         @content
     </body>
 </index>
