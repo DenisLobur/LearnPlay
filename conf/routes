@@ -14,3 +14,4 @@ POST          /createUser                               controllers.TaskListBegi
 GET           /logout1                                  controllers.TaskListBegin.logout
 POST          /addTask1                                 controllers.TaskListBegin.addTask
 POST          /removeTask1                              controllers.TaskListBegin.removeTask
+POST          /validateLoginForm1                       controllers.TaskListBegin.validateLoginForm
