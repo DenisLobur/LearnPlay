@@ -1,15 +1,18 @@
 @(zz: String)(implicit flash: Flash)
-@main("Play") {
-<h2>Play and Scala.js share a same</h2>
-<ul>
-    <li>Play shouts out: <em>@zz</em></li>
-    <li>Scala.js shouts out: <em>"message" + 2121</em></li>
-</ul>
-<p>I'm just adding stuff into the arg passed to main.</p>
-<table>
-    @for(i <- 1 to 12) {
-    <tr><td>@i</td></tr>
+
+    @main("Play") {
+        <h2>Play and Scala.js share same message</h2>
+        <ul>
+            <li>Play shouts out: <em>@zz</em></li>
+            <li>Scala.js shouts out: <em>"message" + 2121</em></li>
+        </ul>
+
+        <p>I'm just adding stuff into the arg passed to main.</p>
+
+        <table>
+        @for(i <- 1 to 12) {
+            <tr><td>@i</td></tr>
+        }
+        </table>
+        @(if(true) "a" else "b")
     }
-</table>
-@(if(true) "a" else "b")
-}
