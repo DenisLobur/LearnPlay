@@ -7,12 +7,14 @@
             <li>Scala.js shouts out: <em>"message" + 2121</em></li>
         </ul>
 
-        <p>I'm just adding stuff into the arg passed to main.</p>
+        <p id="randomText">Click for a new random number: <span id="random">4</span></p>
 
-        <table>
-        @for(i <- 1 to 12) {
-            <tr><td>@i</td></tr>
-        }
-        </table>
-        @(if(true) "a" else "b")
+        <script src="@routes.Assets.versioned("javascript/basicStuff.js")"></script>
+
+@*        <table>*@
+@*        @for(i <- 1 to 12) {*@
+@*            <tr><td>@i</td></tr>*@
+@*        }*@
+@*        </table>*@
+@*        @(if(true) "a" else "b")*@
     }
