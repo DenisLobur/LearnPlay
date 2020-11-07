@@ -17,6 +17,7 @@ POST          /removeTask1                              controllers.TaskListBegi
 POST          /validateLoginForm1                       controllers.TaskListBegin.validateLoginForm
 
 GET           /random                                   controllers.Application.randomNumber
+GET           /randomString/:length                     controllers.Application.randomString(length: Int)
 
 GET           /assets/*file                             controllers.Assets.at(file)
 GET           /versionedAssets/*file                    controllers.Assets.versioned(path="/public", file: Asset)
