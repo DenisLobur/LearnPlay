@@ -16,4 +16,13 @@ class TaskList2 @Inject()(cc: ControllerComponents) extends AbstractController(c
     Ok(views.html.login2())
   }
 
+  def validate(username: String, password: String) = Action {
+    if (TaskListInMemoryModel.validateUser(username, password)) {
+      val taskList = TaskListInMemoryModel.getTasks(username)
+      Ok(views.html.taskList2(taskList)).withSession("username" -> username)
+    } else {
+      Ok(views.html.login2())
+    }
+  }
+
 }

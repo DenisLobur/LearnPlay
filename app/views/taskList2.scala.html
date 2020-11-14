@@ -1,0 +1,22 @@
+@(tasks: Seq[String])
+
+<h2>Task list header</h2>
+
+<ul>
+    @for((task, i) <- tasks.zipWithIndex) {
+        <li>@task</li>
+        <form method="post" action="@routes.TaskListBegin.removeTask()">
+        <input type="hidden" name="index" value="@i"/>
+        <input type="submit" value="Remove"/>
+        </form>
+    }
+</ul>
+
+<form method="post" action="@routes.TaskListBegin.addTask()">
+    <input type="text" name="newTask"/>
+    <input type="submit"/>
+</form>
+
+<div>
+    <a href="@routes.TaskListBegin.logout()">Logout</a>
+</div>
