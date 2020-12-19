@@ -8,5 +8,11 @@ function login() {
 }
 
 function createUser() {
-    console.log("try to create user")
+    const name = $("#createName").val()
+    const pass = $("#createPass").val()
+    $("#contents").load("/create2?username=" + name + "&password=" + pass)
+}
+
+function deleteTask(index) {
+    $("#contents").load("/delete2?index=" + index)
 }
