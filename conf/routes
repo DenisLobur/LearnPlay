@@ -22,6 +22,8 @@ GET           /login2                                   controllers.TaskList2.lo
 GET           /validate2                                controllers.TaskList2.validate(username, password)
 GET           /create2                                  controllers.TaskList2.createUser(username, password)
 GET           /delete2                                  controllers.TaskList2.deleteTask(index: Int)
+GET           /addTask2                                 controllers.TaskList2.addTask(task: String)
+GET           /logout2                                  controllers.TaskList2.logout
 
 GET           /random                                   controllers.Application.randomNumber
 GET           /randomString/:length                     controllers.Application.randomString(length: Int)
