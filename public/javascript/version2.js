@@ -1,10 +1,16 @@
 
-$("#contents").load("/login2")
+const csrfToken = $("#csrfToken").val()
+const loginRoute = $("#loginRoute").val()
+const validateRoute = $("#validateRoute").val()
+
+$("#contents").load(loginRoute)
 
 function login() {
     const name = $("#loginName").val()
     const pass = $("#loginPass").val()
-    $("#contents").load("/validate2?username=" + name + "&password=" + pass)
+    $.post(validateRoute, {name, pass, csrfToken}, data => {
+        $("#contents").html(data)
+    })
 }
 
 function createUser() {
