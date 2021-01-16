@@ -6,9 +6,9 @@ const validateRoute = $("#validateRoute").val()
 $("#contents").load(loginRoute)
 
 function login() {
-    const name = $("#loginName").val()
-    const pass = $("#loginPass").val()
-    $.post(validateRoute, {name, pass, csrfToken}, data => {
+    const username = $("#loginName").val()
+    const password = $("#loginPass").val()
+    $.post(validateRoute, {username, password, csrfToken}, data => {
         $("#contents").html(data)
     })
 }
