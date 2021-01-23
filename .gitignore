@@ -13,3 +13,8 @@ dist
 /RUNNING_PID
 /.settings
 LICENSE
+.idea
+
+# hidden cross project folders
+shared/.js
+shared/.jvm
