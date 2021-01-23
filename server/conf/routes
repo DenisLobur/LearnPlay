@@ -2,7 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page v1
+# v1
 GET           /                                         controllers.TaskListBegin.index
 GET           /taskListBegin1                           controllers.TaskListBegin.taskListBegin1
 GET           /getProductArgs                           controllers.TaskListBegin.getProduct(prodName, prodNumber: Int)
@@ -16,7 +16,7 @@ POST          /addTask1                                 controllers.TaskListBegi
 POST          /removeTask1                              controllers.TaskListBegin.removeTask
 POST          /validateLoginForm1                       controllers.TaskListBegin.validateLoginForm
 
-# TaskList2 v2
+# v2
 GET           /load2                                    controllers.TaskList2.load
 GET           /login2                                   controllers.TaskList2.login
 GET           /taskList2                                controllers.TaskList2.taskList
@@ -25,6 +25,10 @@ GET           /create2                                  controllers.TaskList2.cr
 GET           /delete2                                  controllers.TaskList2.deleteTask(index: Int)
 GET           /addTask2                                 controllers.TaskList2.addTask(task: String)
 GET           /logout2                                  controllers.TaskList2.logout
+
+# v3
+GET           /load3                                    controllers.TaskList3.load
+GET           /data                                     controllers.TaskList3.data
 
 GET           /random                                   controllers.Application.randomNumber
 GET           /randomString/:length                     controllers.Application.randomString(length: Int)
