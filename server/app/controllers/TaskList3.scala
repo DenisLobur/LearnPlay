@@ -9,7 +9,10 @@ import play.api.mvc._
 @Singleton
 class TaskList3 @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-  def load = TODO
+  def
+  load = Action { implicit request =>
+    Ok(views.html.version3Main())
+  }
 
   def data = Action {
     Ok(Json.toJson(Seq("a", "b", "c")))
