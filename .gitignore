@@ -15,6 +15,7 @@ dist
 LICENSE
 .idea
 .bsp
+server/server.iml
 
 # hidden cross project folders
 shared/.js
