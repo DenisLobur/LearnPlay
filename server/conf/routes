@@ -29,6 +29,7 @@ GET           /logout2                                  controllers.TaskList2.lo
 # v3
 GET           /load3                                    controllers.TaskList3.load
 GET           /data                                     controllers.TaskList3.data
+POST          /validate3                                controllers.TaskList3.validate
 
 GET           /random                                   controllers.Application.randomNumber
 GET           /randomString/:length                     controllers.Application.randomString(length: Int)
