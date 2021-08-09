@@ -38,6 +38,11 @@
 
     <input type="hidden" id="csrfToken" value="@helper.CSRF.getToken.value">
     <input type="hidden" id="validateRoute" value="@routes.TaskList3.validate()">
+    <input type="hidden" id="tasksRoute" value="@routes.TaskList3.taskList()">*@
+    <input type="hidden" id="createRoute" value="@routes.TaskList2.createUser("", "")">*@
+    <input type="hidden" id="deleteRoute" value="@routes.TaskList2.delete()">*@
+    <input type="hidden" id="addRoute" value="@routes.TaskList2.addTask("")">*@
+@*    <input type="hidden" id="logoutRoute" value="@routes.TaskList3.logout()">*@
 
     <script src="@routes.Assets.versioned("javascript/version3.js")"></script>
 }
